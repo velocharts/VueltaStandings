@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Vuelta Espana
+    </title>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/highcharts-more.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	</head>
+	
+<script>
+
+$(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'line',
+			
+           		
+   },
+            title: {
+                text: 'Vuelta a Espana 2013',align: 'left',
+				x:50,
+				style: { fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '21px', color: 'rgb(79, 78, 80)'}
+            },
+            subtitle: {
+                text: 'The Battle for the Lead',
+				align: 'left',
+				x:50,
+				y:35,
+				style: { fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '16px', color: 'rgb(79, 78, 80)'}
+            },
+            xAxis: {
+			 title: {
+                    text: 'Stage',
+					style: { fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '14px', color: 'rgb(79, 78, 80)'}	
+                },
+			labels: {
+						style: {
+								fontSize: '13px', fontFamily: 'Arial, Helvetica, sans-serif', color: 'rgb(79, 78, 80)'
+								}
+						},
+                categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19']
+            },
+            yAxis: {
+					min:0,
+					reversed: true,
+					alternateGridColor: 'rgba(242, 242, 242, 0.3)',
+						gridLineColor: 'rgba(79, 78, 80, 0.15)',
+				labels: {
+						style: {
+								fontSize: '13px', fontFamily: 'Arial, Helvetica, sans-serif', color: 'rgb(79, 78, 80)'
+								}
+						},
+              	
+                title: {
+                    text: 'Seconds back from leader',
+					style: { fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '14px', color: 'rgb(79, 78, 80)'}	
+                }
+            },
+			credits: {
+					text: 'Source: velocharts',
+					style: { fontFamily: 'Arial, Helvetica, sans-serif'},
+					href: 'http://www.velocharts.com'
+			},
+            tooltip: {
+			hideDelay: 250,
+                       formatter: function() {
+                    return '<b>'+ this.series.name +'</b><br/>'+
+                        'Stage: ' + this.x +'<br>Seconds behind leader: '+ this.y +'';
+                }
+            },
+			legend: {
+			title: {
+                    text: '<span style="font-size: 14px; color: #666; font-weight: normal">Click to view/hide</span>',
+                    style: {
+                        //fontStyle: 'italic'
+						  fontSize: '16px', fontFamily: 'Arial, Helvetica, sans-serif', color: 'rgb(79, 78, 80)'
+							}
+						},
+					 layout: 'vertical',
+                align: 'right',
+				padding: 10,
+				borderWidth: 0,
+                verticalAlign: 'top',
+                x: 0,
+				y: 30,
+					itemStyle: {
+						  fontSize: '14px', fontFamily: 'Arial, Helvetica, sans-serif', color: 'rgb(79, 78, 80)'
+							},
+					},
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: false
+                    },
+             
+                },
+				 series: {
+				 	animation: {
+                duration: 5000
+            },
+							marker: {
+									fillColor: null,  // inherit from series
+									lineWidth: 2,
+									lineColor: '#ffffff' 
+                }
+            }
+            },
+            series: [{
+                name: 'Horner',
+				color: 'orange',
+				marker: {
+                symbol: 'circle'
+				},
+                data: [10, 10, 0, 3, 3, 3, 3, 17, 28, 0, 46, 46, 46, 50 , 50, 28, 28, 3,0]
+            }, {
+                name: 'Nibali',
+				color: 'steelblue',
+					marker: {
+                symbol: 'circle'
+				},
+                data: [0, 0, 3, 0, 0, 0, 0, 18, 19, 43, 0, 0,0,0,0,0,0,0,3]
+            },
+			{
+                name: 'Valverde',
+				color: 'green',
+				visible: false,
+					marker: {
+                symbol: 'circle'
+				},
+                data: [29, 27,24 , 21, 21,21 , 21, 31, 22, 62, 46, 46,46,102,102,74,74,69,66]
+            },
+			{
+                name: 'Rodriguez',
+				color: 'yellow',
+				visible: false,
+					marker: {
+                symbol: 'circle'
+				},
+                data: [59, 57,56 , 53, 53, 53, 53, 63, 56, 100, 153, 153,153,177,177,149,149,144,117]
+            },{
+                name: 'Roche',
+				color: 'red',
+				visible: false,
+					marker: {
+                symbol: 'circle'
+				},
+                data: [32, 8, 11, 8, 8, 8, 8, 0, 1, 53, 33, 31, 31,246,229,223,223,223,229]
+            },]
+        });
+    });
+
+</script>	
+	
+	
+	<div id="container" style="width:700px; height:425px;"></div>
+
+</html>
